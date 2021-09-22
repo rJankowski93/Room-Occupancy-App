@@ -20,7 +20,7 @@ public class RoomOccupancyManager {
     public Reservation bookRooms(final List<Guest> guests, final int quantityFreePremiumRooms, final int quantityFreeEconomyRooms) {
         guests.sort(Comparator.comparing(Guest::getPrice).reversed());
 
-        List<Room> premiumRooms =  premiumRoomsManager.bookRooms(guests, quantityFreePremiumRooms, quantityFreeEconomyRooms);
+        List<Room> premiumRooms = premiumRoomsManager.bookRooms(guests, quantityFreePremiumRooms, quantityFreeEconomyRooms);
         List<Room> economyRooms = economyRoomManager.bookRooms(guests, quantityFreeEconomyRooms, premiumRooms.size());
 
         return Reservation.builder()
@@ -30,8 +30,4 @@ public class RoomOccupancyManager {
                 .premium(premiumRooms)
                 .build();
     }
-
-
-
-
 }

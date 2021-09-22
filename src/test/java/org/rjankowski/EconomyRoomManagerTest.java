@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
-import static org.junit.Assert.*;
-
 public class EconomyRoomManagerTest {
 
     EconomyRoomManager economyRoomManager = new EconomyRoomManager();

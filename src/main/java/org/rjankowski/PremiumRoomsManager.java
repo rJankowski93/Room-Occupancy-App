@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class PremiumRoomsManager {
 
-    public List<Room> bookRooms(final List<Guest> guests, final int quantityFreePremiumRooms,final int quantityFreeEconomyRooms) {
+    public List<Room> bookRooms(final List<Guest> guests, final int quantityFreePremiumRooms, final int quantityFreeEconomyRooms) {
         List<Room> reservedRooms = bookPremiumRoomsForExpectedPrice(guests, quantityFreePremiumRooms);
         int quantityAvailableFreePremiumRooms = quantityFreePremiumRooms - reservedRooms.size();
         int quantityReservedPremiumRooms = reservedRooms.size();
@@ -26,7 +26,7 @@ public class PremiumRoomsManager {
         return reservedRooms;
     }
 
-    private List<Room> bookPremiumRoomsForExpectedPrice(final List<Guest> guests,final int quantityFreePremiumRooms) {
+    private List<Room> bookPremiumRoomsForExpectedPrice(final List<Guest> guests, final int quantityFreePremiumRooms) {
         List<Room> premium = new ArrayList<>();
         int quantityAvailableFreePremiumRooms = quantityFreePremiumRooms;
         for (Guest guest : guests) {

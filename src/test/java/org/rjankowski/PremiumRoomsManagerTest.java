@@ -21,7 +21,7 @@ public class PremiumRoomsManagerTest {
         List<Guest> guests = Collections.emptyList();
         int quantityFreeEconomyRooms = 0;
 
-        List<Room> reservedRooms = premiumRoomsManager.bookRooms(guests, quantityFreeEconomyRooms,0);
+        List<Room> reservedRooms = premiumRoomsManager.bookRooms(guests, quantityFreeEconomyRooms, 0);
 
         Assert.assertEquals(0, reservedRooms.size());
     }
@@ -32,7 +32,7 @@ public class PremiumRoomsManagerTest {
         List<Guest> guests = prices.stream().map(price -> new Guest(BigDecimal.valueOf(price))).collect(Collectors.toList());
         int quantityFreeEconomyRooms = 1;
 
-        List<Room> reservedRooms = premiumRoomsManager.bookRooms(guests, quantityFreeEconomyRooms,0);
+        List<Room> reservedRooms = premiumRoomsManager.bookRooms(guests, quantityFreeEconomyRooms, 0);
 
         Assert.assertEquals(1, reservedRooms.size());
         Assert.assertEquals(BigDecimal.valueOf(123.0), reservedRooms.stream().map(Room::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add));
@@ -44,7 +44,7 @@ public class PremiumRoomsManagerTest {
         List<Guest> guests = prices.stream().map(price -> new Guest(BigDecimal.valueOf(price))).collect(Collectors.toList());
         int quantityFreeEconomyRooms = 2;
 
-        List<Room> reservedRooms = premiumRoomsManager.bookRooms(guests, quantityFreeEconomyRooms,0);
+        List<Room> reservedRooms = premiumRoomsManager.bookRooms(guests, quantityFreeEconomyRooms, 0);
 
         Assert.assertEquals(2, reservedRooms.size());
         Assert.assertEquals(BigDecimal.valueOf(379.0), reservedRooms.stream().map(Room::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add));
@@ -56,7 +56,7 @@ public class PremiumRoomsManagerTest {
         List<Guest> guests = prices.stream().map(price -> new Guest(BigDecimal.valueOf(price))).collect(Collectors.toList());
         int quantityFreeEconomyRooms = 0;
 
-        List<Room> reservedRooms = premiumRoomsManager.bookRooms(guests, quantityFreeEconomyRooms,0);
+        List<Room> reservedRooms = premiumRoomsManager.bookRooms(guests, quantityFreeEconomyRooms, 0);
 
         Assert.assertEquals(0, reservedRooms.size());
     }
