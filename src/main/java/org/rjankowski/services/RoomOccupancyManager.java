@@ -1,4 +1,4 @@
-package org.rjankowski;
+package org.rjankowski.services;
 
 import lombok.RequiredArgsConstructor;
 import org.rjankowski.dto.Guest;
@@ -26,8 +26,8 @@ public class RoomOccupancyManager {
         return Reservation.builder()
                 .priceForEconomyRooms(economyRooms.stream().map(Room::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add))
                 .priceForPremiumRooms(premiumRooms.stream().map(Room::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add))
-                .economy(economyRooms)
-                .premium(premiumRooms)
+                .economyReservedRooms(economyRooms)
+                .premiumReservedRooms(premiumRooms)
                 .build();
     }
 }

@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.rjankowski.dto.Guest;
 import org.rjankowski.dto.Reservation;
+import org.rjankowski.services.EconomyRoomManager;
+import org.rjankowski.services.PremiumRoomsManager;
+import org.rjankowski.services.RoomOccupancyManager;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -25,8 +28,8 @@ public class RoomOccupancyManagerTest {
 
         Assert.assertEquals(BigDecimal.valueOf(738.0), reservation.getPriceForPremiumRooms());
         Assert.assertEquals(BigDecimal.valueOf(167.99), reservation.getPriceForEconomyRooms());
-        Assert.assertEquals(3, reservation.getPremium().size());
-        Assert.assertEquals(3, reservation.getEconomy().size());
+        Assert.assertEquals(3, reservation.getPremiumReservedRooms().size());
+        Assert.assertEquals(3, reservation.getEconomyReservedRooms().size());
     }
 
     @Test
@@ -38,8 +41,8 @@ public class RoomOccupancyManagerTest {
 
         Assert.assertEquals(BigDecimal.valueOf(1054.0), reservation.getPriceForPremiumRooms());
         Assert.assertEquals(BigDecimal.valueOf(189.99), reservation.getPriceForEconomyRooms());
-        Assert.assertEquals(6, reservation.getPremium().size());
-        Assert.assertEquals(4, reservation.getEconomy().size());
+        Assert.assertEquals(6, reservation.getPremiumReservedRooms().size());
+        Assert.assertEquals(4, reservation.getEconomyReservedRooms().size());
     }
 
     @Test
@@ -51,8 +54,8 @@ public class RoomOccupancyManagerTest {
 
         Assert.assertEquals(BigDecimal.valueOf(583.0), reservation.getPriceForPremiumRooms());
         Assert.assertEquals(BigDecimal.valueOf(189.99), reservation.getPriceForEconomyRooms());
-        Assert.assertEquals(2, reservation.getPremium().size());
-        Assert.assertEquals(4, reservation.getEconomy().size());
+        Assert.assertEquals(2, reservation.getPremiumReservedRooms().size());
+        Assert.assertEquals(4, reservation.getEconomyReservedRooms().size());
     }
 
     @Test
@@ -64,7 +67,7 @@ public class RoomOccupancyManagerTest {
 
         Assert.assertEquals(BigDecimal.valueOf(1153.99), reservation.getPriceForPremiumRooms());
         Assert.assertEquals(BigDecimal.valueOf(45.00), reservation.getPriceForEconomyRooms());
-        Assert.assertEquals(7, reservation.getPremium().size());
-        Assert.assertEquals(1, reservation.getEconomy().size());
+        Assert.assertEquals(7, reservation.getPremiumReservedRooms().size());
+        Assert.assertEquals(1, reservation.getEconomyReservedRooms().size());
     }
 }

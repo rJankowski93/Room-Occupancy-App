@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.rjankowski.dto.Guest;
 import org.rjankowski.dto.Room;
+import org.rjankowski.services.EconomyRoomManager;
 
 import java.math.BigDecimal;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package org.rjankowski;
+package org.rjankowski.services;
 
 import org.rjankowski.dto.Guest;
 import org.rjankowski.dto.Reservation;
