@@ -1,4 +1,12 @@
-FROM adoptopenjdk/openjdk11
-ADD build/libs/Room-Occupancy-Application-1.0-SNAPSHOT.jar .
+FROM i386/gradle:jdk11
+VOLUME gradle-cache:/home/gradle/.gradle
+VOLUME /tmp
+USER root
+ADD . /home/gradle/project
+WORKDIR /home/gradle/project
+RUN chown gradle:gradle -R /home/gradle
+USER gradle
+RUN gradle bootJar
+RUN mv /home/gradle/project/build/libs/*.jar /home/gradle/project/app.jar
 EXPOSE 8081
-CMD java -jar Room-Occupancy-Application-1.0-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/home/gradle/project/app.jar"]
