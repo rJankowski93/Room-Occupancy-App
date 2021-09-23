@@ -1,5 +1,6 @@
 package org.rjankowski.rest;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.rjankowski.dto.BookRoomsRequest;
 import org.rjankowski.dto.Guest;
@@ -23,6 +24,7 @@ public class RoomOccupancyResource {
     private final RoomOccupancyManager roomOccupancyManager;
 
     @PostMapping("/book-rooms")
+    @ApiOperation(value = "Book rooms")
     public ResponseEntity<Reservation> bookRooms(@RequestBody BookRoomsRequest request) {
         Reservation reservation = roomOccupancyManager
                 .bookRooms(request.getGuests().stream().map(guestRequest -> new Guest(guestRequest.getPrice())).collect(Collectors.toList()),
